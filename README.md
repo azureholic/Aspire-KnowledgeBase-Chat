@@ -37,7 +37,7 @@ Before you begin developing or deploying the KBChat application, ensure you have
 Even for local development, the following Azure resources are required as there are no local alternatives:
 
 - **Azure AI Search** - For vector storage and semantic search capabilities
-- **Azure Storage Account** - For storing application data and embeddings
+- **Azure Storage Account** - For storing knowlegde base data
 - **Azure OpenAI Service** - For AI capabilities and embeddings generation
 
 ### Azure Authentication
@@ -148,7 +148,7 @@ Add the app registration details to your user secrets or appsettings:
 ```bash
 # API App Registration settings
 dotnet user-secrets set "EntraID:ApiClientId" "your-api-client-id"
-dotnet user-secrets set "EntraID:TenantId" "your-tenant-id"
+dotnet user-secrets set "EntraID:Instance" ""https://login.microsoftonline.com/<your tenant id>"
 
 # Frontend App Registration settings
 dotnet user-secrets set "EntraID:FrontendClientId" "your-frontend-client-id"
@@ -174,7 +174,7 @@ To allow the application to access your Azure DevOps wiki pages, you need to cre
 
 ```bash
 # Add Azure DevOps PAT to user secrets
-dotnet user-secrets set "AzureDevOps:PersonalAccessToken" "your-pat"
+dotnet user-secrets set "Parameters:ADOPAT" "your-pat"
 ```
 
 > **IMPORTANT:** The Personal Access Token is a sensitive secret and should never be stored in source code or configuration files that might be committed to a repository. Always use secrets.json (via user secrets) for local development. Treat this token with the same level of protection as a password, as it provides access to your Azure DevOps resources.
