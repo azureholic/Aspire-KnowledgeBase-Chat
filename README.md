@@ -81,8 +81,7 @@ For development, it's recommended to use .NET User Secrets to store sensitive co
 dotnet user-secrets init --project KBChat.AppHost
 
 # Add Azure OpenAI settings
-dotnet user-secrets set "AzureOpenAI:Endpoint" "https://your-openai-endpoint.openai.azure.com/"
-dotnet user-secrets set "AzureOpenAI:Deployment" "your-deployment-name"
+dotnet user-secrets set "ConnectionStrings:OpenAI" "https://your-openai-endpoint.openai.azure.com/"
 
 # Add Azure DevOps settings
 dotnet user-secrets set "AzureDevOps:Organization" "your-organization"
@@ -146,13 +145,13 @@ Add the app registration details to your user secrets or appsettings:
 
 ```bash
 # API App Registration settings
-dotnet user-secrets set "EntraID:ApiClientId" "your-api-client-id"
-dotnet user-secrets set "EntraID:Instance" "https://login.microsoftonline.com/<your tenant id>"
-dotnet user-secrets set "EntraID:BackendScope" "api://<your api app client id>/chat"
-dotnet user-secrets set "EntraID:Audience" "api://<your api app client id>"
+dotnet user-secrets set "EntraId:ApiClientId" "your-api-client-id"
+dotnet user-secrets set "EntraId:Instance" "https://login.microsoftonline.com/<your tenant id>"
+dotnet user-secrets set "EntraId:BackendScope" "api://<your api app client id>/chat"
+dotnet user-secrets set "EntraId:Audience" "api://<your api app client id>"
 
 # Frontend App Registration settings
-dotnet user-secrets set "EntraID:FrontendClientId" "your-frontend-client-id"
+dotnet user-secrets set "EntraId:FrontendClientId" "your-frontend-client-id"
 ```
 
 ## Azure DevOps Personal Access Token
