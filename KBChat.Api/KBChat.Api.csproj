@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e99fba72-b066-4100-b4be-8990e7a549a2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Azure.AI.OpenAI" Version="9.1.0-preview.1.25121.10" />
+    <PackageReference Include="Aspire.Azure.Search.Documents" Version="9.1.0" />
+    <PackageReference Include="Aspire.Microsoft.Azure.Cosmos" Version="9.1.0" />
+    <PackageReference Include="Azure.Identity" Version="1.13.2" />
+    <PackageReference Include="Azure.Search.Documents" Version="11.7.0-beta.3" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.24.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.3" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="3.8.1" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.42.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureAISearch" Version="1.42.0-preview" />
+    <PackageReference Include="Microsoft.SemanticKernel.Connectors.AzureOpenAI" Version="1.44.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KBChat.ServiceDefaults\KBChat.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+</Project>

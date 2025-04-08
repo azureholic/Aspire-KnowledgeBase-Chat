@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>04423de2-0eb2-4c58-82b1-c6ddc9410507</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.CognitiveServices" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.CosmosDB" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.Search" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.Storage" Version="9.1.0" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.1.0" />
+	<PackageReference Include="dotenv.net" Version="3.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KBChat.Api\KBChat.Api.csproj" />
+  </ItemGroup>
+
+	<Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
+		<ItemGroup>
+			<PackageJsons Include="..\KBChat.FrontEnd\package.json" />
+		</ItemGroup>
+
+		<!-- Install npm packages if node_modules is missing -->
+		<Message Importance="Normal" Text="Installing npm packages for %(PackageJsons.RelativeDir)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
+		<Exec Command="npm install" WorkingDirectory="%(PackageJsons.RootDir)%(PackageJsons.Directory)" Condition="!Exists('%(PackageJsons.RootDir)%(PackageJsons.Directory)/node_modules')" />
+	</Target>
+
+</Project>
