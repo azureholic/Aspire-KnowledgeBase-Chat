@@ -82,19 +82,18 @@ dotnet user-secrets init --project KBChat.AppHost
 
 # Add Azure OpenAI settings
 dotnet user-secrets set "AzureOpenAI:Endpoint" "https://your-openai-endpoint.openai.azure.com/"
-dotnet user-secrets set "AzureOpenAI:Key" "your-openai-key"
 dotnet user-secrets set "AzureOpenAI:Deployment" "your-deployment-name"
 
 # Add Azure DevOps settings
 dotnet user-secrets set "AzureDevOps:Organization" "your-organization"
 dotnet user-secrets set "AzureDevOps:Project" "your-project"
-dotnet user-secrets set "AzureDevOps:PersonalAccessToken" "your-pat"
+dotnet user-secrets set "Parameters:ADOPAT" "your-pat"
 
 # Add Cosmos DB connection string
-dotnet user-secrets set "ConnectionStrings:Cosmos" "your-cosmos-connection-string"
+dotnet user-secrets set "ConnectionStrings:Cosmos" "your-cosmos-endpoint"
 
 # Add Storage Account connection string
-dotnet user-secrets set "ConnectionStrings:Storage" "your-storage-connection-string"
+dotnet user-secrets set "ConnectionStrings:Storage" "your-storage-endpoint"
 
 # View all configured secrets
 dotnet user-secrets list --project KBChat.AppHost
@@ -148,7 +147,9 @@ Add the app registration details to your user secrets or appsettings:
 ```bash
 # API App Registration settings
 dotnet user-secrets set "EntraID:ApiClientId" "your-api-client-id"
-dotnet user-secrets set "EntraID:Instance" ""https://login.microsoftonline.com/<your tenant id>"
+dotnet user-secrets set "EntraID:Instance" "https://login.microsoftonline.com/<your tenant id>"
+dotnet user-secrets set "EntraID:BackendScope" "api://<your api app client id>/chat"
+dotnet user-secrets set "EntraID:Audience" "api://<your api app client id>"
 
 # Frontend App Registration settings
 dotnet user-secrets set "EntraID:FrontendClientId" "your-frontend-client-id"
