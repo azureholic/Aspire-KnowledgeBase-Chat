@@ -80,16 +80,13 @@ For development, it's recommended to use .NET User Secrets to store sensitive co
 # Initialize user secrets for the AppHost project
 dotnet user-secrets init --project KBChat.AppHost
 
-# Add Azure OpenAI settings
+# Add Azure OpenAI Endpoint
 dotnet user-secrets set "ConnectionStrings:OpenAI" "https://your-openai-endpoint.openai.azure.com/"
 
 # Add Azure DevOps settings
 dotnet user-secrets set "AzureDevOps:Organization" "your-organization"
 dotnet user-secrets set "AzureDevOps:Project" "your-project"
 dotnet user-secrets set "Parameters:ADOPAT" "your-pat"
-
-# Add Cosmos DB connection string
-dotnet user-secrets set "ConnectionStrings:Cosmos" "your-cosmos-endpoint"
 
 # Add Storage Account connection string
 dotnet user-secrets set "ConnectionStrings:Storage" "your-storage-endpoint"
