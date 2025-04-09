@@ -1,4 +1,4 @@
-FROM node:22 as build
+FROM node:22-slim AS build
 
 ARG VITE_PUBLIC_APP_ID
 ARG VITE_PUBLIC_AUTHORITY_URL
@@ -9,7 +9,8 @@ ARG VITE_API_PATH
 WORKDIR /app
 
 COPY package.json package.json
-RUN npm i esbuild
+COPY package-lock.json package-lock.json
+#RUN npm i esbuild
 RUN npm install
 
 COPY . .
